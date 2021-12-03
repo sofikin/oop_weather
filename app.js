@@ -1,5 +1,9 @@
+// LS object
+const ls = new LS();
+// init city
+const initCity = ls.getCityData()
 // weather object
-const weather = new Weather("Tallinn");
+const weather = new Weather(initCity);
 // UI object
 const ui = new UI();
 
@@ -11,6 +15,7 @@ form.addEventListener("submit", changeCityWeather)
 function changeCityWeather(event){
     const city = document.querySelector("#city-name").value
     weather.changeCity(city)
+    ls.setCityData(city)
     getWeather()
     document.querySelector("#city-name").value = ""
     event.preventDefault()
